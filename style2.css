@@ -244,9 +244,12 @@ justify-content: center;
 align-items: center;
 height: 100vh;
 position: relative;
+
 background-color: bisque;
+background-image:url("logo.png");
     background-repeat: no-repeat;
     background-size: auto;
+    background-position: bottom center;
 
 
     text-align: center;

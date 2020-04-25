@@ -106,7 +106,7 @@ function execute() {
         // Handle the results here (response.result has the parsed body).
         const listItems = response.result.items;
         if (listItems) {
-            let output = '<h4>Videos</h4><ul>';
+            let output = '<h2>Videos</h4><ul>';
  
             listItems.forEach(item => {
                 const videoId = item.id.videoId;
