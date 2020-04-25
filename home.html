@@ -1,0 +1,132 @@
+<!doctype html>
+
+ <html>
+ <!-- Hero -->
+ <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+  />
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+  <link href="style.css" rel="stylesheet" />
+
+ 
+   
+  <section class="et-hero-tabs">
+    
+    <h1>Energii</h1>
+    <h3>Keep Fit and Have Fun with Friends</h3>
+    <div class="et-hero-tabs-container">
+      <a class="et-hero-tab" href="#workout">Workout</a>
+
+      <a class="et-hero-tab" href="#tab-es6">Requests</a>
+      <a class="et-hero-tab" href="#tab-flexbox">Rewards</a>
+      <a class="et-hero-tab" href="#tab-react">Profile</a>
+      <span class="et-hero-tab-slider"></span>
+    </div>
+
+  </section>
+
+  <!-- Main -->
+  <main class="et-main">
+    <section class="et-slide" id="workout">
+        <h1>Workout</h1>
+        <h3>Start working out by searching for your desired exercise</h3>
+      </section>
+    <section class="et-slide" id="tab-es6">
+      <h1>Requests</h1>
+      <h3>This is where you can accept real time requests to work out from your friends!</h3>
+    </section>
+    <section class="et-slide" id="tab-flexbox">
+      <h1>Rewards</h1>
+      <h3>Look at your achievements from working out!</h3>
+    </section>
+    <section class="et-slide" id="tab-react">
+      <h1>Profile</h1>
+      <h3>Look at stats based on your everyday workout habits</h3>
+    </section>
+
+  </main>
+
+
+
+
+  <script>
+      class StickyNavigation {
+	
+	constructor() {
+		this.currentId = null;
+		this.currentTab = null;
+		this.tabContainerHeight = 70;
+		let self = this;
+		$('.et-hero-tab').click(function() { 
+			self.onTabClick(event, $(this)); 
+		});
+		$(window).scroll(() => { this.onScroll(); });
+		$(window).resize(() => { this.onResize(); });
+	}
+	
+	onTabClick(event, element) {
+		event.preventDefault();
+		let scrollTop = $(element.attr('href')).offset().top - this.tabContainerHeight + 1;
+		$('html, body').animate({ scrollTop: scrollTop }, 600);
+	}
+	
+	onScroll() {
+		this.checkTabContainerPosition();
+    this.findCurrentTabSelector();
+	}
+	
+	onResize() {
+		if(this.currentId) {
+			this.setSliderCss();
+		}
+	}
+	
+	checkTabContainerPosition() {
+		let offset = $('.et-hero-tabs').offset().top + $('.et-hero-tabs').height() - this.tabContainerHeight;
+		if($(window).scrollTop() > offset) {
+			$('.et-hero-tabs-container').addClass('et-hero-tabs-container--top');
+		} 
+		else {
+			$('.et-hero-tabs-container').removeClass('et-hero-tabs-container--top');
+		}
+	}
+	
+	findCurrentTabSelector(element) {
+		let newCurrentId;
+		let newCurrentTab;
+		let self = this;
+		$('.et-hero-tab').each(function() {
+			let id = $(this).attr('href');
+			let offsetTop = $(id).offset().top - self.tabContainerHeight;
+			let offsetBottom = $(id).offset().top + $(id).height() - self.tabContainerHeight;
+			if($(window).scrollTop() > offsetTop && $(window).scrollTop() < offsetBottom) {
+				newCurrentId = id;
+				newCurrentTab = $(this);
+			}
+		});
+		if(this.currentId != newCurrentId || this.currentId === null) {
+			this.currentId = newCurrentId;
+			this.currentTab = newCurrentTab;
+			this.setSliderCss();
+		}
+	}
+	
+	setSliderCss() {
+		let width = 0;
+		let left = 0;
+		if(this.currentTab) {
+			width = this.currentTab.css('width');
+			left = this.currentTab.offset().left;
+		}
+		$('.et-hero-tab-slider').css('width', width);
+		$('.et-hero-tab-slider').css('left', left);
+	}
+	
+}
+
+new StickyNavigation();
+  </script>
+  </html>
