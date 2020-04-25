@@ -118,7 +118,7 @@ function execute() {
             output += '</ul>';
  
             if (response.result.prevPageToken) {
-                output += `<br><a class="paginate" href="#" data-id="${response.result.prevPageToken}" onclick="paginate(event, this)">Prev</a>`;
+                output += `<br><a class="paginate" href="#" data-id="${response.result.prevPageToken}" onclick="paginate(event, this)">Prev </a>`;
             }
  
             if (response.result.nextPageToken) {
