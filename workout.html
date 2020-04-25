@@ -1,0 +1,33 @@
+<!doctype html>
+
+ <html>
+ <!-- Hero -->
+ <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+  />
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+  <link href="style2.css" rel="stylesheet" />
+<div id="cover">
+    <form method="get" action="">
+      <div class="tb">
+        <div class="td"><input type="text" id="SearchInput" placeholder="Search" required></div>
+        <div class="td" id="s-cover">
+          <button type="submit">
+            <div id="s-circle"></div>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <script>
+    function GetSearch() {
+    var input = document.getElementById("SearchInput").value;
+    alert(input);
+}
+
+  </script>
+</html>
