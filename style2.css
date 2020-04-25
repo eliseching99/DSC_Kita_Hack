@@ -14,7 +14,7 @@ body
     background-image: url('logo.png');
     background-repeat: no-repeat;
     background-attachment: local;
-    background-position: center;
+    background-position: center top;
     margin: 0;
     background-color:  #FFFACD;;
 }
