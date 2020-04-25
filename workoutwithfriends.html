@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width-device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!--Bootstrap makes everything look good-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+
+    <!--My own style sheet for this project-->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!--CDN references for twilio and jquery-->
+    <script src="https://media.twiliocdn.com/sdk/js/video/v1/twilio-video.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <!--My own JS file with the twilio logic and event handlers-->
+    <script src="twilioIntegration.js"></script>
+
+    <title>Energii Web Chat</title>
+    <script>
+      //We're not gonna use the form properly and instead do our own thing on submit
+      $(document).ready(() =>
+        $("#join-chat-form").submit(function(event) {
+          event.preventDefault();
+          getNameAndJoinRoom();
+        })
+      );
+
+      //This function grabs the name entered and passes it off to the twilio integration script
+      function getNameAndJoinRoom() {
+        $("#connecting-message").show();
+        var name = $("#name").val();
+        joinRoom(name);
+      }
+    </script>
+  </head>
+  <body>
+    <!--Jumbotron header to look fancy and modern-->
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <h1 class="display-4">Welcome!</h1>
+            <p class="lead">This is a video chat room to work out together!.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--The UI to enter a name and join the chat-->
+    <div class="container">
+      <div class="row" id="join-chat">
+        <div class="col" id="join-form-container">
+          <form id="join-chat-form">
+            <div class="form-group">
+              <label for="Name">Name:</label>
+              <input type="text" id="name" name="name" class="form-control" />
+              <p id="connecting-message" style="display: none;">
+                Connecting...
+              </p>
+            </div>
+            <!--This button will trigger the overridden submit event-->
+            <input type="submit" value="Enter Chat" class="btn btn-primary" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <br />
+    <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+</iframe>
+    
+    <!--This is where the video chat elements will go-->
+    <div class="container-fluid" id="media-container">
+      <div class="row">
+        <div class="col" style="display:none;" id="join-message-container">
+          <h3 id="join-message">Placeholder join message</h3>
+        </div>
+      </div>
+      <div class="row" id="media-div"></div>
+    </div>
+  </body>
+</html>
