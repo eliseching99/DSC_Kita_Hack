@@ -11,7 +11,7 @@
 
   <link href="style2.css" rel="stylesheet" />
 <div id="cover">
-    <form method="get" action="">
+    <form id="yt-form" method="get" action="">
       <div class="tb">
         <div class="td"><input type="text" id="keyword-input" placeholder="Search" required></div>
         <div class="td" id="s-cover">
@@ -28,11 +28,10 @@
     <script src="https://apis.google.com/js/api.js"></script>
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
-    <script src="script.js"></script>
     
   <script>
     function GetSearch() {
-    var input = document.getElementById("SearchInput").value;
+    var input = document.getElementById("keyword-input").value;
     alert(input);
 }
 gapi.load("client", loadClient);
