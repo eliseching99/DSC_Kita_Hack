@@ -2,6 +2,12 @@
 
 .jumbotron{
     background-color: #FFFACD;
+    background-image: url('logo.png');
+    background-size:auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    
+
 }
 
 .video-insert {
