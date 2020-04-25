@@ -9,12 +9,19 @@ html, body
     min-height: 100%;
 }
 
+.jumbotron{
+    background-color: #FFFACD;
+    background-image: url('logo.png');
+    background-size:auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    
+
+}
+
 body
 {
-    background-image: url('logo.png');
-    background-repeat: no-repeat;
-    background-attachment: local;
-    background-position: center top;
+
     margin: 0;
     background-color:  #FFFACD;;
 }
@@ -237,9 +244,7 @@ justify-content: center;
 align-items: center;
 height: 100vh;
 position: relative;
-background-image: url(logo.png);
 background-color: bisque;
-background-position: center top;
     background-repeat: no-repeat;
     background-size: auto;
 
