@@ -20,6 +20,7 @@
       </div>
     </div>
   </div>
+  <div id="videoListContainer"></div>
 
   <section class="et-hero-tabs">
     
@@ -48,8 +49,6 @@
       </div>
     </form>
   </div>
-  <div id="videoListContainer"></div>
-
  
     <script src="https://apis.google.com/js/api.js"></script>
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -107,7 +106,7 @@ function execute() {
         // Handle the results here (response.result has the parsed body).
         const listItems = response.result.items;
         if (listItems) {
-            let output = '<h2>Videos</h4><ul>';
+            let output = '<h>Videos</h4><ul>';
  
             listItems.forEach(item => {
                 const videoId = item.id.videoId;
