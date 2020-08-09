@@ -76,10 +76,6 @@
   }
    
 
-.bpw-composer textarea {
-  background: #ececec;
-  border-radius: 20px;
-  font-size: 1.25rem;
-  overflow: hidden;
+.bpw-powered{
+    visibility:hidden;
 }
-
