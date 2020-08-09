@@ -1,5 +1,6 @@
 .bpw-from-bot .bpw-chat-bubble {
     background-color: #ececec;
+    
   }
   
   .bpw-chat-bubble:last-of-type {
@@ -13,11 +14,11 @@
   }
   
   .bpw-from-user .bpw-chat-bubble:last-of-type {
-    border-bottom-right-radius: 0px;
+    border-bottom-right-radius: 20px;
   }
   
   .bpw-from-bot .bpw-chat-bubble:last-of-type {
-    border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 20px;
   }
   
   .bpw-from-user .bpw-chat-bubble {
@@ -78,4 +79,10 @@
 
 .bpw-powered{
     visibility:hidden;
+}
+
+.bpw-button{
+    background-color:palegoldenrod;
+    border-radius:20px;
+    
 }
